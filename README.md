@@ -1,4 +1,10 @@
 # Dream Journaller
+## About the .bat file
+You can run this bat file to create an executable of program if you have pyinstaller installed through "pip install pyinstaller".
+
+This is not necessary for functionality (you can just run main.py if you have python installed) but is just a little thing I did for convenience.
+Of course, always check the bat file before running, and make sure you know what it does.
+##
 A journaling application written in Python with the Qt GUI library and SQLite3.
 ##
 I am in the process of digitizing my dream journals from the past few years, and thought that having a dedicated program to do so would be helpful, so I made this.
