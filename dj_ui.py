@@ -548,7 +548,7 @@ class Ui_SaveEntry(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.enter_num.sizePolicy().hasHeightForWidth())
         self.enter_num.setSizePolicy(sizePolicy1)
-        self.enter_num.setReadOnly(True)
+        self.enter_num.setReadOnly(False)
 
         self.entry_layout.addWidget(self.enter_num)
 

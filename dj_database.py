@@ -13,16 +13,33 @@ cursor = connect.cursor()
 
 
 def tag_str_to_list(tags):
+    """
+    Turns the stored string of tags into a list.
+
+    :param tags: The string of tags, separated by ", "
+    :return: A list containing all tags in parameter "tags"
+    """
     tags_list = tags.split(", ")
     tags_list.sort()
     return tags_list
 
 
 def tag_list_to_str(tag_list):
+    """
+    Join the list of tags to a string for database storage.
+
+    :param tag_list: A list of an entry's tags.
+    :return: A string of tags, separated by ", "
+    """
     return ", ".join(tag_list)
 
 
 def get_largest_id():
+    """
+    Return the largest dream number in the table "dreams".
+
+    :return: The largest dream number/id in "dreams".
+    """
     with connect:
         cursor.execute("SELECT MAX(CAST(Id AS INT)) FROM dreams")
 
@@ -35,6 +52,24 @@ def get_largest_id():
 
 
 def insert_from_gui(journal, dream_id, title, date, tags, body, overwrite=False):
+    """
+    Insert an entry into the database.
+    Removes tabs and replaces newline characters for internal storage.
+
+    :param journal: The name of the journal the entry will be entered under.
+    :param dream_id: The number of the entry.
+    :param title: The title of the journal entry.
+    :param date: The date of the entry.
+    :param tags: The tags associated with the entry.
+    :param body: The actual entry itself.
+    :param overwrite: Whether or not the entry will overwrite an equivalent dream id.
+    :return: Error code to report back to the calling method.
+        0: Successful entry into database.
+        -1: Dream id is a duplicate and isn't allowed to overwrite.
+        -2: Dream id is not a number
+        -3: The entry title or body is empty.
+        -4: No journal is chosen.
+    """
     if not dream_id.isdigit():
         print("Save aborted. Dream Id must be a number.")
         return -2
@@ -70,6 +105,14 @@ def insert_from_gui(journal, dream_id, title, date, tags, body, overwrite=False)
 
 
 def get_from_gui(dream_id):
+    """
+    Return a list containing all content of an entry from a database.
+    Format: (id, title, date, tags, body).
+    Adds a tab character to the start of each paragraph and replaces the NEW_PARA constant with a newline character.
+
+    :param dream_id: The id of the entry to retrieve.
+    :return: A list containing the content in the entry.
+    """
     with connect:
         cursor.execute(
             "SELECT Id, Title, Date, Tags, Body FROM dreams WHERE Id=:dream_id",
@@ -86,6 +129,12 @@ def get_from_gui(dream_id):
 
 
 def get_journal_by_text(journal_name):
+    """
+    Retrieve an entire journal.
+
+    :param journal_name: The name of the journal to return.
+    :return: All the entries within param journal_name
+    """
     with connect:
         cursor.execute(
             "SELECT Id, Title, Date, Tags, Body FROM dreams WHERE Journal=:journal_name ORDER BY Id",
@@ -96,6 +145,11 @@ def get_journal_by_text(journal_name):
 
 
 def get_all_dreams():
+    """
+    Retrieve all dreams in the database ordered by id.
+
+    :return: Every entry in the database.
+    """
     with connect:
         cursor.execute(
             "SELECT Id, Title, Date, Tags, Body FROM dreams ORDER BY Id"
@@ -105,6 +159,11 @@ def get_all_dreams():
 
 
 def delete_entry(dream_id):
+    """
+    Delete an entry from the database.
+
+    :param dream_id: The number/id of the entry to be deleted.
+    """
     with connect:
         cursor.execute("DELETE FROM dreams WHERE Id=:dream_id", {"dream_id": dream_id})
 
@@ -114,6 +173,11 @@ def delete_entry(dream_id):
 
 
 def delete_journal(journal_name):
+    """
+    Delete an entire journal.
+
+    :param journal_name: The name of the journal to be deleted.
+    """
     with connect:
         cursor.execute("DELETE FROM dreams WHERE Journal=:journal_name", {"journal_name": journal_name})
         cursor.execute("DELETE FROM journal_names WHERE JName=:journal_name", {"journal_name": journal_name})
@@ -167,6 +231,11 @@ def erase_tags_list():
 
 
 def get_tags():
+    """
+    Retrieve all the tags from the tags database.
+
+    :return: A list of every tag added to the database.
+    """
     with connect:
         cursor.execute("SELECT * FROM tags ORDER BY Tag")
     tags = []
@@ -176,6 +245,11 @@ def get_tags():
 
 
 def add_tag(tag):
+    """
+    Add a tag to the tags database.
+
+    :param tag: Tag to add.
+    """
     if tag == "":
         print("Can't create blank tag")
         return
@@ -192,6 +266,11 @@ def add_tag(tag):
 
 
 def delete_tag(tag):
+    """
+    Delete a tag from the tags database.
+
+    :param tag: Tag to be deleted.
+    """
     with connect:
         cursor.execute("DELETE FROM tags WHERE Tag=:tag", {"tag": tag})
 
@@ -217,6 +296,14 @@ def erase_journ_name_table():
 
 
 def add_journal(journal_name):
+    """
+    Add a journal to the journal database.
+
+    :param journal_name: Name of the new journal.
+    :return: Error codes
+        None: journal_name is blank
+        -1: journal_name already exists
+    """
     if journal_name == "":
         print("Can't create blank journal name")
         return
@@ -233,6 +320,11 @@ def add_journal(journal_name):
 
 
 def get_journal_names():
+    """
+    Get all existing journal names.
+
+    :return: A list of all existing journal names.
+    """
     with connect:
         cursor.execute("SELECT * FROM journal_names ORDER BY JName")
 

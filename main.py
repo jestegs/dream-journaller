@@ -28,8 +28,10 @@ class LoadDialog(QDialog):
     def load_entry(self):
         global loaded_dream
         if self.ui.list_entries.selectedItems():
-            # this part is dependent on what number dream is added first
-            dream_number = self.ui.list_entries.currentRow() + 1
+
+            dream_sel = self.ui.list_entries.item(self.ui.list_entries.currentRow())
+            dream_number = int(dream_sel.text().split(':')[0])
+
             loaded_dream = db.get_from_gui(dream_number)
 
             self.close()
@@ -95,7 +97,7 @@ class SaveDialog(QDialog):
         journal = self.ui.journ_sel.currentText()
 
         insert_status = db.insert_from_gui(journal,
-                                           dream_to_save[0],
+                                           self.ui.enter_num.text(),
                                            dream_to_save[1],
                                            dream_to_save[2],
                                            dream_to_save[3],
@@ -135,6 +137,7 @@ class SaveDialog(QDialog):
     def overwrite_button(self, button):
         journal = self.ui.journ_sel.currentText()
         if button.text() == "Save":
+            dream_to_save[0] = self.ui.enter_num.text()
             print("overwrite dream")
             db.insert_from_gui(journal,
                                dream_to_save[0],
@@ -259,13 +262,23 @@ class MainWindow(QMainWindow):
         global loaded_dream
 
         if button.text() == "&Yes":
-            #self.ui.enter_number.setText(str(self.get_next_id()))
-            self.ui.enter_title.setText("")
-            self.ui.enter_date.setText("")
-            self.ui.list_entry_tags.clear()
-            self.ui.text_entry.setText("")
+            if loaded_dream:
+                self.ui.enter_title.setText(loaded_dream[1])
+                self.ui.enter_date.setText(loaded_dream[2])
+
+                self.ui.list_entry_tags.clear()
+                for tag in db.tag_str_to_list(loaded_dream[3]):
+                    self.ui.list_entry_tags.addItem(tag)
+                self.ui.text_entry.setText(loaded_dream[4])
+            else:
+                #self.ui.enter_number.setText(str(self.get_next_id()))
+                self.ui.enter_title.setText("")
+                self.ui.enter_date.setText("")
+                self.ui.list_entry_tags.clear()
+                self.ui.text_entry.setText("")
+
             loaded_dream = []
-        else:
+        elif button.text() == "&No":
             pass
 
     def save_entry(self):
@@ -300,14 +313,18 @@ class MainWindow(QMainWindow):
         load_dialog.exec_()
 
         if loaded_dream:
+            self.new_entry()
+
             #self.ui.enter_number.setText(str(loaded_dream[0]))
-            self.ui.enter_title.setText(str(loaded_dream[1]))
-            self.ui.enter_date.setText(str(loaded_dream[2]))
 
-            self.ui.text_entry.setText(str(loaded_dream[4]))
+            #self.ui.enter_title.setText(str(loaded_dream[1]))
+            #self.ui.enter_date.setText(str(loaded_dream[2]))
 
-            for tag in db.tag_str_to_list(loaded_dream[3]):
-                self.ui.list_entry_tags.addItem(tag)
+            #self.ui.text_entry.setText(str(loaded_dream[4]))
+
+            #self.ui.list_entry_tags.clear()
+            #for tag in db.tag_str_to_list(loaded_dream[3]):
+                #self.ui.list_entry_tags.addItem(tag)
 
     def new_tag(self):
         """
@@ -383,6 +400,7 @@ class MainWindow(QMainWindow):
 
 
 # todo: add format html to gui
+# todo: load existing journals
 
 
 if __name__ == "__main__":
@@ -395,6 +413,8 @@ if __name__ == "__main__":
         { 
             background: #deaf83;
             color: #411c0f;
+            selection-color: #deaf83;
+            selection-background-color: #911818;
         }
         
         QPushButton { color: #911818; font: italic }
@@ -402,7 +422,64 @@ if __name__ == "__main__":
         
         QGroupBox 
         {
-            border-color: #411c0f;
+            border: 1px solid #411c0f;
+            margin-top: 5px;
+        }
+        QGroupBox:title
+        {
+            subcontrol-position: top left;
+            top: -7px;
+            left: 5px;
+        }
+        
+        QLineEdit
+        {
+            border: 1px solid grey;
+        }
+        QLineEdit:focus
+        {
+            border: 1px solid #411c0f;
+        }
+        
+        QListWidget
+        {
+            border: 1px solid grey;
+        }
+        QListWidget:focus
+        {
+            border: 1px solid #411c0f;
+        }
+        QListWidget:item:selected
+        {
+            background: #911818;
+        }
+        QListWidget:item:hover
+        {
+            background: #e4bb95;
+        }
+        QListWidget:item:selected:hover
+        {
+            background: #944b32;
+        }
+        
+        QTextEdit
+        {
+            font: 12px;
+        }
+        QTextEdit:focus
+        {
+            border: 1px solid #411c0f;
+        }
+        
+        QMenu:item:selected
+        {
+            color: #411c0f;
+            background: #e4bb95;
+        }
+        
+        QMenuBar:item:selected
+        {
+            background: #e4bb95;
         }
         """
     )

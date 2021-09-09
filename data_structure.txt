@@ -1,0 +1,20 @@
+DATABASE STRUCTURE:
+TABLE dreams (
+    Journal text,	# journal name
+    Id integer,		# journal number
+    Title text,
+	Date text,		# MM/DD/YYYY
+	Tags text,		# tag1, tag2, tag3, ...
+	Body text
+)
+
+TABLE tags (
+	Tag text		# a single tag
+)
+
+TABLE journal_names (
+	JName text
+)
+
+DREAM STRUCTURE:
+The body of dreams has paragraphs indicated by the NEW_PARA constant.
