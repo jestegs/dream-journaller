@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'journallerCWxfuD.ui'
+## Form generated from reading UI file 'journallerqhikUL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -42,6 +42,8 @@ class Ui_window_main(object):
         self.menu_file_save.setObjectName(u"menu_file_save")
         self.menu_del_journal = QAction(window_main)
         self.menu_del_journal.setObjectName(u"menu_del_journal")
+        self.actionLoad_Journal = QAction(window_main)
+        self.actionLoad_Journal.setObjectName(u"actionLoad_Journal")
         self.central_widget = QWidget(window_main)
         self.central_widget.setObjectName(u"central_widget")
         sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -280,15 +282,12 @@ class Ui_window_main(object):
         self.text_entry.setObjectName(u"text_entry")
         sizePolicy1.setHeightForWidth(self.text_entry.sizePolicy().hasHeightForWidth())
         self.text_entry.setSizePolicy(sizePolicy1)
-        font2 = QFont()
-        font2.setPointSize(10)
-        font2.setKerning(True)
-        self.text_entry.setFont(font2)
         self.text_entry.setAutoFillBackground(False)
         self.text_entry.setFrameShape(QFrame.StyledPanel)
         self.text_entry.setLineWidth(1)
         self.text_entry.setMidLineWidth(0)
         self.text_entry.setTabStopWidth(40)
+        self.text_entry.setAcceptRichText(False)
 
         self.verticalLayout_2.addWidget(self.text_entry)
 
@@ -326,7 +325,7 @@ class Ui_window_main(object):
         self.menu_file.addAction(self.menu_file_saveas)
         self.menu_file.addAction(self.menu_file_load)
         self.menu_file.addSeparator()
-        self.menu_file.addAction(self.menu_del_journal)
+        self.menu_file.addAction(self.actionLoad_Journal)
         self.menu_file.addSeparator()
         self.menu_file.addAction(self.menu_file_exit)
 
@@ -348,6 +347,7 @@ class Ui_window_main(object):
         self.menu_file_save.setShortcut(QCoreApplication.translate("window_main", u"Ctrl+S", None))
 #endif // QT_CONFIG(shortcut)
         self.menu_del_journal.setText(QCoreApplication.translate("window_main", u"Delete Journal...", None))
+        self.actionLoad_Journal.setText(QCoreApplication.translate("window_main", u"Load Journal...", None))
         self.layout_tags_list.setTitle(QCoreApplication.translate("window_main", u"Tags List", None))
         self.label_new_tag.setText(QCoreApplication.translate("window_main", u"Enter New Tag", None))
         self.b_delete_tags.setText(QCoreApplication.translate("window_main", u"Delete Tags", None))
@@ -363,6 +363,7 @@ class Ui_window_main(object):
         self.menu_help.setTitle(QCoreApplication.translate("window_main", u"Help", None))
         pass
     # retranslateUi
+
 
 
 

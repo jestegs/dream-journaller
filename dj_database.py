@@ -189,16 +189,24 @@ def delete_journal(journal_name):
 
 def create_dreams_table():
     with connect:
-        cursor.execute(
-            """CREATE TABLE dreams (
-            Journal text,
-            Id integer,
-            Title text,
-            Date text,
-            Tags text,
-            Body text
-            )"""
-        )
+        cursor.execute("SELECT count(name) FROM sqlite_master WHERE type='table' AND name='dreams'")
+        if cursor.fetchone()[0] == 1:
+            print("Table dreams already exists. Continuing...")
+        else:
+            print("Table dreams does not exist. Creating...")
+
+            cursor.execute(
+                """CREATE TABLE dreams (
+                Journal text,
+                Id integer,
+                Title text,
+                Date text,
+                Tags text,
+                Body text
+                )"""
+            )
+
+            print("Table dreams created.")
 
     connect.commit()
 
@@ -214,11 +222,17 @@ def erase_dreams_table():
 
 def create_tags_list():
     with connect:
-        cursor.execute(
-            """CREATE TABLE tags (
-            Tag text
-            )"""
-        )
+        cursor.execute("SELECT count(name) FROM sqlite_master WHERE type='table' AND name='tags'")
+        if cursor.fetchone()[0] == 1:
+            print("Table tags already exists. Continuing...")
+        else:
+            print("Table tags does not exist. Creating...")
+            cursor.execute(
+                """CREATE TABLE tags (
+                Tag text
+                )"""
+            )
+            print("Table tags created.")
 
     connect.commit()
 
@@ -279,11 +293,17 @@ def delete_tag(tag):
 
 def create_journ_name_table():
     with connect:
-        cursor.execute(
-            """CREATE TABLE journal_names (
-            JName text
-            )"""
-        )
+        cursor.execute("SELECT count(name) FROM sqlite_master WHERE type='table' AND name='journal_names'")
+        if cursor.fetchone()[0] == 1:
+            print("Table journal_names already exists. Continuing...")
+        else:
+            print("Table journal_names does not exist. Creating...")
+            cursor.execute(
+                """CREATE TABLE journal_names (
+                JName text
+                )"""
+            )
+            print("Table journal_names created.")
 
     connect.commit()
 

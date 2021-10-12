@@ -398,12 +398,19 @@ class MainWindow(QMainWindow):
         else:
             pass
 
+    def closeEvent(self, event):
+        self.exit_prgm()
+
 
 # todo: add format html to gui
-# todo: load existing journals
 
 
 if __name__ == "__main__":
+    # assemble the data base, and/or check if it already exists
+    db.create_journ_name_table()
+    db.create_dreams_table()
+    db.create_tags_list()
+
     app = QApplication(sys.argv)
     main_win = MainWindow()
 
@@ -464,7 +471,7 @@ if __name__ == "__main__":
         
         QTextEdit
         {
-            font: 12px;
+            
         }
         QTextEdit:focus
         {
