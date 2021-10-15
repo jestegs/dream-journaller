@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'journallerqhikUL.ui'
+## Form generated from reading UI file 'journallerqWZnyg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -120,11 +120,8 @@ class Ui_window_main(object):
 
         self.layout_entry = QGroupBox(self.central_widget)
         self.layout_entry.setObjectName(u"layout_entry")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Preferred)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.layout_entry.sizePolicy().hasHeightForWidth())
-        self.layout_entry.setSizePolicy(sizePolicy5)
+        sizePolicy2.setHeightForWidth(self.layout_entry.sizePolicy().hasHeightForWidth())
+        self.layout_entry.setSizePolicy(sizePolicy2)
         self.layout_entry.setMinimumSize(QSize(500, 0))
         self.layout_entry.setMaximumSize(QSize(500, 16777215))
         self.layout_entry.setAutoFillBackground(False)
@@ -132,11 +129,11 @@ class Ui_window_main(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.layout_header = QFrame(self.layout_entry)
         self.layout_header.setObjectName(u"layout_header")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.layout_header.sizePolicy().hasHeightForWidth())
-        self.layout_header.setSizePolicy(sizePolicy6)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.layout_header.sizePolicy().hasHeightForWidth())
+        self.layout_header.setSizePolicy(sizePolicy5)
         self.layout_header.setMinimumSize(QSize(0, 181))
         self.layout_header.setMaximumSize(QSize(16777215, 181))
         self.layout_header.setAutoFillBackground(False)
@@ -146,8 +143,8 @@ class Ui_window_main(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.layout_entry_tags = QGroupBox(self.layout_header)
         self.layout_entry_tags.setObjectName(u"layout_entry_tags")
-        sizePolicy.setHeightForWidth(self.layout_entry_tags.sizePolicy().hasHeightForWidth())
-        self.layout_entry_tags.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.layout_entry_tags.sizePolicy().hasHeightForWidth())
+        self.layout_entry_tags.setSizePolicy(sizePolicy3)
         self.layout_entry_tags.setMinimumSize(QSize(131, 160))
         self.layout_entry_tags.setMaximumSize(QSize(131, 160))
         self.layout_entry_tags.setAutoFillBackground(False)
@@ -155,35 +152,33 @@ class Ui_window_main(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.b_remove_tag = QPushButton(self.layout_entry_tags)
         self.b_remove_tag.setObjectName(u"b_remove_tag")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.b_remove_tag.sizePolicy().hasHeightForWidth())
-        self.b_remove_tag.setSizePolicy(sizePolicy7)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.b_remove_tag.sizePolicy().hasHeightForWidth())
+        self.b_remove_tag.setSizePolicy(sizePolicy6)
         self.b_remove_tag.setAutoFillBackground(False)
 
         self.gridLayout.addWidget(self.b_remove_tag, 2, 2, 1, 1)
 
         self.b_add_tag = QPushButton(self.layout_entry_tags)
         self.b_add_tag.setObjectName(u"b_add_tag")
-        sizePolicy7.setHeightForWidth(self.b_add_tag.sizePolicy().hasHeightForWidth())
-        self.b_add_tag.setSizePolicy(sizePolicy7)
+        sizePolicy6.setHeightForWidth(self.b_add_tag.sizePolicy().hasHeightForWidth())
+        self.b_add_tag.setSizePolicy(sizePolicy6)
         self.b_add_tag.setAutoFillBackground(False)
 
         self.gridLayout.addWidget(self.b_add_tag, 2, 1, 1, 1)
 
         self.list_entry_tags = QListWidget(self.layout_entry_tags)
         self.list_entry_tags.setObjectName(u"list_entry_tags")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.list_entry_tags.sizePolicy().hasHeightForWidth())
-        self.list_entry_tags.setSizePolicy(sizePolicy8)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.list_entry_tags.sizePolicy().hasHeightForWidth())
+        self.list_entry_tags.setSizePolicy(sizePolicy7)
         self.list_entry_tags.setMinimumSize(QSize(111, 100))
         self.list_entry_tags.setMaximumSize(QSize(111, 100))
-        font1 = QFont()
-        font1.setPointSize(8)
-        self.list_entry_tags.setFont(font1)
+        self.list_entry_tags.setFont(font)
         self.list_entry_tags.setAutoFillBackground(False)
         self.list_entry_tags.setSelectionMode(QAbstractItemView.MultiSelection)
         self.list_entry_tags.setSortingEnabled(True)
@@ -195,11 +190,11 @@ class Ui_window_main(object):
 
         self.heading = QFrame(self.layout_header)
         self.heading.setObjectName(u"heading")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy9.setHorizontalStretch(0)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(self.heading.sizePolicy().hasHeightForWidth())
-        self.heading.setSizePolicy(sizePolicy9)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.heading.sizePolicy().hasHeightForWidth())
+        self.heading.setSizePolicy(sizePolicy8)
         self.heading.setMaximumSize(QSize(16777215, 150))
         self.heading.setFrameShape(QFrame.StyledPanel)
         self.heading.setFrameShadow(QFrame.Raised)
@@ -209,8 +204,8 @@ class Ui_window_main(object):
         self.verticalLayout_4.setContentsMargins(-1, -1, 9, -1)
         self.label_title = QLabel(self.heading)
         self.label_title.setObjectName(u"label_title")
-        sizePolicy7.setHeightForWidth(self.label_title.sizePolicy().hasHeightForWidth())
-        self.label_title.setSizePolicy(sizePolicy7)
+        sizePolicy6.setHeightForWidth(self.label_title.sizePolicy().hasHeightForWidth())
+        self.label_title.setSizePolicy(sizePolicy6)
         self.label_title.setFont(font)
         self.label_title.setAutoFillBackground(False)
         self.label_title.setAlignment(Qt.AlignCenter)
@@ -221,8 +216,8 @@ class Ui_window_main(object):
         self.layout_title.setObjectName(u"layout_title")
         self.enter_title = QLineEdit(self.heading)
         self.enter_title.setObjectName(u"enter_title")
-        sizePolicy7.setHeightForWidth(self.enter_title.sizePolicy().hasHeightForWidth())
-        self.enter_title.setSizePolicy(sizePolicy7)
+        sizePolicy6.setHeightForWidth(self.enter_title.sizePolicy().hasHeightForWidth())
+        self.enter_title.setSizePolicy(sizePolicy6)
         self.enter_title.setMinimumSize(QSize(200, 20))
         self.enter_title.setMaximumSize(QSize(250, 20))
         palette = QPalette()
@@ -246,8 +241,8 @@ class Ui_window_main(object):
 
         self.label_date = QLabel(self.heading)
         self.label_date.setObjectName(u"label_date")
-        sizePolicy7.setHeightForWidth(self.label_date.sizePolicy().hasHeightForWidth())
-        self.label_date.setSizePolicy(sizePolicy7)
+        sizePolicy6.setHeightForWidth(self.label_date.sizePolicy().hasHeightForWidth())
+        self.label_date.setSizePolicy(sizePolicy6)
         self.label_date.setFont(font)
         self.label_date.setAutoFillBackground(False)
         self.label_date.setStyleSheet(u"")
@@ -259,8 +254,8 @@ class Ui_window_main(object):
         self.layout_date.setObjectName(u"layout_date")
         self.enter_date = QLineEdit(self.heading)
         self.enter_date.setObjectName(u"enter_date")
-        sizePolicy7.setHeightForWidth(self.enter_date.sizePolicy().hasHeightForWidth())
-        self.enter_date.setSizePolicy(sizePolicy7)
+        sizePolicy6.setHeightForWidth(self.enter_date.sizePolicy().hasHeightForWidth())
+        self.enter_date.setSizePolicy(sizePolicy6)
         self.enter_date.setMinimumSize(QSize(100, 20))
         self.enter_date.setMaximumSize(QSize(100, 20))
         self.enter_date.setFont(font)
@@ -365,12 +360,10 @@ class Ui_window_main(object):
     # retranslateUi
 
 
-
-
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'loadDialogsmSFDg.ui'
+## Form generated from reading UI file 'loadDialogfkoxFd.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -399,7 +392,7 @@ class Ui_LoadDialog(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.groupBox = QGroupBox(LoadDialog)
         self.groupBox.setObjectName(u"groupBox")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
@@ -435,11 +428,8 @@ class Ui_LoadDialog(object):
 
         self.frame = QFrame(LoadDialog)
         self.frame.setObjectName(u"frame")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
-        self.frame.setSizePolicy(sizePolicy3)
+        sizePolicy1.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy1)
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame)
