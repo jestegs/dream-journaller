@@ -13,4 +13,4 @@ The user is able to enter a title, date, and related tags to an entry and save i
 
 The GUI is made in Qt Designer, which generates code from a drag-and-drop interface to use with PyQt, where UI elements can be connected to Python code. SQLite3 is used to store and manage data entered by the user, such as saving, overwriting, deleting, and loading entries.
 
-![image](https://user-images.githubusercontent.com/63424655/149020922-f2c524e6-c0c8-43c6-8608-b7895557e1f2.png)
+
